@@ -1,0 +1,165 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="assets/lib/gsap.min.js"></script>
+<style>
+@font-face{font-family:"Baloo2";src:url("assets/fonts/baloo-2-devanagari-800-normal.woff2") format("woff2");font-weight:800}
+@font-face{font-family:"Mukta";src:url("assets/fonts/mukta-devanagari-700-normal.woff2") format("woff2");font-weight:700}
+@font-face{font-family:"Mukta";src:url("assets/fonts/mukta-devanagari-800-normal.woff2") format("woff2");font-weight:800}
+html,body{margin:0;background:#0b1d33}
+#root{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;font-family:"Mukta","Inter",sans-serif;color:#eaf6ff;
+ background:radial-gradient(ellipse at 35% 55%,#13345a 0%,#0b1d33 60%,#071426 100%)}
+#grid{position:absolute;inset:0;background-image:linear-gradient(rgba(143,211,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(143,211,255,.07) 1px,transparent 1px),linear-gradient(rgba(143,211,255,.13) 1px,transparent 1px),linear-gradient(90deg,rgba(143,211,255,.13) 1px,transparent 1px);background-size:30px 30px,30px 30px,150px 150px,150px 150px}
+.eng{position:absolute;left:0;top:0;width:1920px;height:1080px}
+.eng svg{width:1920px;height:1080px;overflow:visible}
+.svl{font-family:"Baloo2";font-weight:800;font-size:34px;fill:#ffd34d}
+.svl.g{fill:#7dffb2}.svl.w{fill:#fff}
+.degb{font-family:"Baloo2";font-weight:800;font-size:48px;fill:#ffd34d}
+.deg{font-family:"Mukta";font-weight:700;font-size:26px;fill:#8fd3ff}
+.panel{position:absolute;left:1080px;top:150px;width:760px;opacity:0}
+.it{opacity:0;margin-bottom:22px}
+.kick{font-size:34px;font-weight:800;color:#8fd3ff;letter-spacing:2px;text-transform:uppercase;border-left:8px solid #ffd34d;padding-left:18px}
+.big{font-family:"Baloo2";font-weight:800;font-size:96px;line-height:1.12}
+.huge{font-family:"Baloo2";font-weight:800;font-size:130px;line-height:1.05;margin-bottom:0}
+.vs{font-size:50px;font-weight:800;color:#8fd3ff;margin:0 0 0 10px}
+.sub{font-size:54px;font-weight:700;margin-top:20px}
+.q{font-size:60px;font-weight:700;margin-top:30px;background:rgba(255,211,77,.12);border-radius:18px;padding:14px 28px;display:inline-block}
+.mid{font-size:64px;font-weight:800;line-height:1.25}
+.row{font-size:46px;font-weight:700;background:rgba(143,211,255,.08);border:2px solid rgba(143,211,255,.25);border-radius:16px;padding:14px 26px}
+.row.small{font-size:40px;line-height:1.45}
+.row.warn{border-color:#ff8a5c;background:rgba(255,120,60,.12)}
+.o{color:#ffb547}.c{color:#7dffb2}
+b{color:#ffd34d;font-weight:800}
+.head{display:flex;align-items:center;gap:28px;margin-bottom:40px}
+.num{font-family:"Baloo2";font-weight:800;font-size:150px;line-height:1;color:#0b1d33;background:#ffd34d;border-radius:28px;width:170px;height:170px;display:flex;align-items:center;justify-content:center;padding-top:12px;box-sizing:border-box}
+.num.c2{background:#7dffb2}
+.nm{font-family:"Baloo2";font-weight:800;font-size:80px;line-height:1.05}
+.nm i{display:block;font-family:"Inter";font-style:normal;font-weight:700;font-size:34px;color:#8fd3ff;margin-top:8px}
+.kv{display:flex;justify-content:space-between;gap:20px}
+.ra{color:#8fd3ff}.rb{color:#fff;font-weight:800}
+.lw{font-family:"Baloo2";font-weight:800;font-size:84px;margin-bottom:6px}
+.cols{position:absolute;inset:0;opacity:0}
+.colh{position:absolute;top:50px;width:700px;text-align:center;font-family:"Baloo2";font-weight:800;font-size:76px;opacity:0}
+.colh.h4{left:130px;color:#ffb547}.colh.h2{left:1090px;color:#7dffb2}
+.cl{position:absolute;top:790px;width:760px}
+.cl.l{left:100px}.cl.r{left:1060px}
+.ci{opacity:0;font-size:46px;font-weight:800;display:inline-flex;align-items:center;gap:14px;margin:0 18px 14px 0;background:rgba(143,211,255,.08);border:2px solid rgba(143,211,255,.25);border-radius:14px;padding:8px 22px}
+.ci .ic{color:#7dffb2;font-family:"Inter";font-weight:900}
+.ci.bad{border-color:#ff8a5c}.ci.bad .ic{color:#ff6b4a}
+.ci.big2{font-family:"Baloo2";font-size:72px;padding:14px 34px;display:block;text-align:center;margin:40px 40px 0}
+#root .narrow{left:1420px;width:470px}
+.narrow .big{font-size:78px}.narrow .mid{font-size:50px}.narrow .row{font-size:36px}
+#flashv{position:absolute;inset:0;background:#fff;opacity:0}
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="164.56" data-width="1920" data-height="1080">
+  <div id="grid"></div>
+  <div class="eng" id="w4"><svg viewBox="0 0 1920 1080"><defs><radialGradient id="flashGrad"><stop offset="0" stop-color="#fffbe0"/><stop offset=".4" stop-color="#ffb030"/><stop offset="1" stop-color="#ff5a00" stop-opacity="0"/></radialGradient></defs>
+    <g transform="translate(560,800) scale(1.5)"><g id="g4"></g><g id="degg"><text id="deg4a" class="deg" x="-265" y="30" text-anchor="middle"></text><text id="deg4b" class="degb" x="-265" y="80" text-anchor="middle"></text><text id="deg4c" class="deg" x="-265" y="120" text-anchor="middle"></text></g><g id="lab4" class="lgrp" data-s="17.436" data-e="26.537"><g class="lab" data-in="24.646"><line x1="14" y1="-470" x2="290" y2="-500" stroke="#ffd34d" stroke-width="2.5"/><circle cx="14" cy="-470" r="6" fill="#ffd34d"/><text x="300" y="-488" text-anchor="start" class="svl">स्पार्क प्लग</text></g><g class="lab" data-in="20.301"><line x1="120" y1="-150" x2="290" y2="-150" stroke="#ffd34d" stroke-width="2.5"/><circle cx="120" cy="-150" r="6" fill="#ffd34d"/><text x="300" y="-138" text-anchor="start" class="svl">सिलेंडर</text></g><g class="lab" data-in="20.987"><line x1="60" y1="-270" x2="290" y2="-260" stroke="#ffd34d" stroke-width="2.5"/><circle cx="60" cy="-270" r="6" fill="#ffd34d"/><text x="300" y="-248" text-anchor="start" class="svl">पिस्टन</text></g><g class="lab" data-in="21.597"><line x1="25" y1="-130" x2="290" y2="-60" stroke="#ffd34d" stroke-width="2.5"/><circle cx="25" cy="-130" r="6" fill="#ffd34d"/><text x="300" y="-48" text-anchor="start" class="svl">कनेक्टिंग रॉड</text></g><g class="lab" data-in="22.741"><line x1="80" y1="30" x2="290" y2="60" stroke="#ffd34d" stroke-width="2.5"/><circle cx="80" cy="30" r="6" fill="#ffd34d"/><text x="300" y="72" text-anchor="start" class="svl">क्रैंकशाफ्ट</text></g></g><g id="tdcg" class="lgrp" data-s="26.537" data-e="39.976">
+<g class="lab" data-in="34.63"><line x1="-170" y1="-315" x2="170" y2="-315" stroke="#ffd34d" stroke-width="3" stroke-dasharray="12 8"/><text x="185" y="-305" class="svl">TDC</text></g>
+<g class="lab" data-in="37.377"><line x1="-170" y1="-175" x2="170" y2="-175" stroke="#7dffb2" stroke-width="3" stroke-dasharray="12 8"/><text x="185" y="-165" class="svl g">BDC</text></g>
+<g class="lab" data-in="31.216"><path d="M-195,-312 L-215,-312 L-215,-178 L-195,-178" fill="none" stroke="#fff" stroke-width="3"/><text x="-228" y="-235" text-anchor="end" class="svl w">1 स्ट्रोक</text></g></g></g></svg></div>
+  <div class="eng" id="w2"><svg viewBox="0 0 1920 1080">
+    <g transform="translate(560,800) scale(1.5)"><g id="g2"></g><g id="lab2" class="lgrp" data-s="95.359" data-e="106.72"><g class="lab" data-in="100.649"><line x1="270" y1="-215" x2="300" y2="-300" stroke="#ffd34d" stroke-width="2.5"/><circle cx="270" cy="-215" r="6" fill="#ffd34d"/><text x="310" y="-288" text-anchor="start" class="svl">एग्ज़ॉस्ट पोर्ट</text></g><g class="lab" data-in="101.149"><line x1="270" y1="-150" x2="300" y2="-110" stroke="#ffd34d" stroke-width="2.5"/><circle cx="270" cy="-150" r="6" fill="#ffd34d"/><text x="310" y="-98" text-anchor="start" class="svl">इनलेट पोर्ट</text></g><g class="lab" data-in="101.649"><line x1="-160" y1="-150" x2="-320" y2="-470" stroke="#ffd34d" stroke-width="2.5"/><circle cx="-160" cy="-150" r="6" fill="#ffd34d"/><text x="-330" y="-458" text-anchor="start" class="svl">ट्रांसफर पोर्ट</text></g><g class="lab" data-in="102.149"><line x1="-100" y1="100" x2="-230" y2="120" stroke="#ffd34d" stroke-width="2.5"/><circle cx="-100" cy="100" r="6" fill="#ffd34d"/><text x="-240" y="132" text-anchor="end" class="svl">क्रैंककेस</text></g></g></g></svg></div>
+  <div class="panel" id="p-hook" data-s="0.15" data-e="10.411"><div class="it kick" style="" data-in="0">क्या आप जानते हैं?</div><div class="it big" style="" data-in="2.108">हर सेकंड<br><span class="o">दर्जनों धमाके!</span></div><div class="it q" style="" data-in="6.217">लेकिन बाइक <b>चलती कैसे</b> है?</div></div>
+<div class="panel" id="p-title" data-s="10.411" data-e="17.436"><div class="it kick" style="" data-in="10.860999999999999">पेट्रोल इंजन</div><div class="it huge" style="" data-in="11.943"><span class="o">4 स्ट्रोक</span></div><div class="it vs" style="" data-in="12.889">vs</div><div class="it huge" style="" data-in="13.126"><span class="c">2 स्ट्रोक</span></div><div class="it sub" style="" data-in="15.017">कैसे काम करते हैं?</div></div>
+<div class="panel narrow" id="p-parts" data-s="17.436" data-e="26.537"><div class="it kick" style="" data-in="17.886000000000003">भाग 1</div><div class="it big" style="" data-in="17.886000000000003">इंजन के<br>मुख्य हिस्से</div></div>
+<div class="panel" id="p-stroke" data-s="26.537" data-e="39.976"><div class="it kick" style="" data-in="26.987000000000002">भाग 1</div><div class="it big" style="" data-in="26.987000000000002">स्ट्रोक क्या है?</div><div class="it mid" style="" data-in="31.216">पिस्टन का एक बार<br>ऊपर → नीचे <br>= <span class="o">1 स्ट्रोक</span></div><div class="it row small" style="" data-in="34.63"><b>TDC</b> – टॉप डेड सेंटर<br><b>BDC</b> – बॉटम डेड सेंटर</div></div>
+<div class="panel" id="p-four" data-s="39.976" data-e="49.923"><div class="it kick" style="" data-in="40.426">भाग 2</div><div class="it big" style="" data-in="40.426"><span class="o">4 स्ट्रोक</span> इंजन</div><div class="it mid" style="" data-in="43.954">4 स्ट्रोक = <span class="o">1 पावर</span></div><div class="it row" style="" data-in="47.267">क्रैंकशाफ्ट के <b>2 चक्कर</b> (720°)</div></div>
+<div class="panel" id="p-s1" data-s="49.923" data-e="59.904"><div class="it head" style="" data-in="50.373000000000005"><span class="num">1</span><span class="nm">सक्शन स्ट्रोक<i>Suction / Intake</i></span></div><div class="it row kv" style="" data-in="51.94"><span class="ra">पिस्टन</span><span class="rb">↓ नीचे</span></div><div class="it row kv" style="" data-in="53.608"><span class="ra">इनलेट वाल्व</span><span class="rb">खुला</span></div><div class="it row kv" style="" data-in="57.022"><span class="ra">मिश्रण</span><span class="rb">पेट्रोल + हवा अंदर</span></div></div>
+<div class="panel" id="p-s2" data-s="59.904" data-e="69.031"><div class="it head" style="" data-in="60.354"><span class="num">2</span><span class="nm">कम्प्रेशन स्ट्रोक<i>Compression</i></span></div><div class="it row kv" style="" data-in="62.385"><span class="ra">दोनों वाल्व</span><span class="rb">बंद</span></div><div class="it row kv" style="" data-in="65.581"><span class="ra">पिस्टन</span><span class="rb">↑ ऊपर</span></div><div class="it row kv" style="" data-in="67.793"><span class="ra">मिश्रण</span><span class="rb">ज़ोर से दबता है</span></div></div>
+<div class="panel" id="p-s3" data-s="69.031" data-e="78.344"><div class="it head" style="" data-in="69.481"><span class="num">3</span><span class="nm">पावर स्ट्रोक<i>Power</i></span></div><div class="it row kv" style="" data-in="72.021"><span class="ra">स्पार्क प्लग</span><span class="rb">चिंगारी ⚡</span></div><div class="it row kv" style="" data-in="73.884"><span class="ra">मिश्रण</span><span class="rb">जलकर फैलता है</span></div><div class="it row kv" style="" data-in="77.068"><span class="ra">पिस्टन</span><span class="rb">↓ ताकत से नीचे</span></div></div>
+<div class="panel" id="p-s4" data-s="78.344" data-e="87.749"><div class="it head" style="" data-in="78.794"><span class="num">4</span><span class="nm">एग्ज़ॉस्ट स्ट्रोक<i>Exhaust</i></span></div><div class="it row kv" style="" data-in="81.519"><span class="ra">एग्ज़ॉस्ट वाल्व</span><span class="rb">खुला</span></div><div class="it row kv" style="" data-in="83.617"><span class="ra">पिस्टन</span><span class="rb">↑ ऊपर</span></div><div class="it row kv" style="" data-in="85.716"><span class="ra">जली गैसें</span><span class="rb">बाहर</span></div></div>
+<div class="panel" id="p-loop" data-s="87.749" data-e="95.359"><div class="it kick" style="" data-in="88.199">चक्र चलता रहता है…</div><div class="it lw" style="" data-in="90.936"><span class="ln" id="loopw0">1. सक्शन</span></div><div class="it lw" style="" data-in="91.538"><span class="ln" id="loopw1">2. कम्प्रेशन</span></div><div class="it lw" style="" data-in="92.483"><span class="ln" id="loopw2">3. पावर</span></div><div class="it lw" style="" data-in="92.999"><span class="ln" id="loopw3">4. एग्ज़ॉस्ट</span></div></div>
+<div class="panel narrow" id="p-two" data-s="95.359" data-e="106.72"><div class="it kick" style="" data-in="95.809">भाग 3</div><div class="it big" style="" data-in="95.809"><span class="c">2 स्ट्रोक</span> इंजन</div><div class="it mid" style="" data-in="97.716">वाल्व नहीं — <b>पोर्ट</b></div><div class="it row" style="" data-in="103.273">1 चक्कर (360°) = <span class="o">1 पावर</span></div></div>
+<div class="panel" id="p-t1" data-s="106.72" data-e="116.303"><div class="it head" style="" data-in="107.16999999999999"><span class="num c2">↑</span><span class="nm">पिस्टन ऊपर<i>Upward stroke</i></span></div><div class="it row kv" style="" data-in="109.819"><span class="ra">ऊपर</span><span class="rb">मिश्रण दबता है</span></div><div class="it row kv" style="" data-in="111.194"><span class="ra">नीचे क्रैंककेस</span><span class="rb">नया मिश्रण</span></div><div class="it row kv" style="" data-in="112.326"><span class="ra">इनलेट पोर्ट</span><span class="rb">खुला</span></div></div>
+<div class="panel" id="p-t2" data-s="116.303" data-e="128.896"><div class="it head" style="" data-in="116.753"><span class="num c2">↓</span><span class="nm">पिस्टन नीचे<i>Downward stroke</i></span></div><div class="it row kv" style="" data-in="116.653"><span class="ra">स्पार्क</span><span class="rb">पावर ⚡</span></div><div class="it row kv" style="" data-in="119.969"><span class="ra">एग्ज़ॉस्ट पोर्ट</span><span class="rb">गैसें बाहर</span></div><div class="it row kv" style="" data-in="124.418"><span class="ra">ट्रांसफर पोर्ट</span><span class="rb">नया मिश्रण ऊपर</span></div></div>
+<div class="panel" id="p-oil" data-s="128.896" data-e="140.592"><div class="it kick" style="" data-in="129.346">लुब्रिकेशन</div><div class="it big" style="" data-in="133.054">पेट्रोल <span class="c">+</span> <span class="o">2T ऑयल</span></div><div class="it row" style="" data-in="130.461">अलग ऑयल सिस्टम नहीं</div><div class="it row warn" style="" data-in="136.375">इसीलिए <b>धुआँ ज़्यादा</b></div></div>
+  <div class="cols" id="cols-cmp" data-s="140.592" data-e="155.738">
+<div class="colh h4" data-in="140.942">4 स्ट्रोक</div><div class="colh h2" data-in="148.515">2 स्ट्रोक</div>
+<div class="cl l"><div class="ci ok" data-in="142.634"><span class="ic">✓</span>ज़्यादा माइलेज</div><div class="ci ok" data-in="143.681"><span class="ic">✓</span>कम प्रदूषण</div><div class="ci ok" data-in="145.534"><span class="ic">✓</span>आज की बाइक, कार</div></div><div class="cl r"><div class="ci ok" data-in="149.482"><span class="ic">✓</span>हल्का, सस्ता</div><div class="ci ok" data-in="151.496"><span class="ic">✓</span>ज़्यादा पिकअप</div><div class="ci bad" data-in="152.946"><span class="ic">✗</span>धुआँ ज़्यादा</div></div></div>
+<div class="cols" id="cols-end" data-s="155.738" data-e="164.56">
+<div class="colh h4" data-in="157.149">4 स्ट्रोक</div><div class="colh h2" data-in="159.761">2 स्ट्रोक</div>
+<div class="cl l"><div class="ci big2" data-in="158.21">2 चक्कर = <span class="o">1 पावर</span></div></div>
+<div class="cl r"><div class="ci big2" data-in="160.741">1 चक्कर = <span class="o">1 पावर</span></div></div></div>
+  <div id="flashv"></div>
+  <audio id="mix" class="clip" src="assets/audio/mix.wav" data-start="0" data-duration="164.56" data-track-index="2" data-volume="1"></audio>
+</div>
+<script src="assets/engine.js"></script>
+<script>
+(function(){
+const C={"S": {"hook": {"v": 0.5, "d": 9.111, "s": 0.15, "e": 10.411, "D": 10.261}, "title": {"v": 10.761, "d": 5.675, "s": 10.411, "e": 17.436, "D": 7.025}, "parts": {"v": 17.786, "d": 7.851, "s": 17.436, "e": 26.537, "D": 9.101}, "stroke": {"v": 26.887, "d": 11.989, "s": 26.537, "e": 39.976, "D": 13.439}, "four": {"v": 40.326, "d": 8.597, "s": 39.976, "e": 49.923, "D": 9.947}, "s1": {"v": 50.273, "d": 9.131, "s": 49.923, "e": 59.904, "D": 9.981}, "s2": {"v": 60.254, "d": 8.277, "s": 59.904, "e": 69.031, "D": 9.127}, "s3": {"v": 69.381, "d": 8.463, "s": 69.031, "e": 78.344, "D": 9.313}, "s4": {"v": 78.694, "d": 8.555, "s": 78.344, "e": 87.749, "D": 9.405}, "loop": {"v": 88.099, "d": 5.76, "s": 87.749, "e": 95.359, "D": 7.61}, "two": {"v": 95.709, "d": 10.111, "s": 95.359, "e": 106.72, "D": 11.361}, "t1": {"v": 107.07, "d": 8.733, "s": 106.72, "e": 116.303, "D": 9.583}, "t2": {"v": 116.653, "d": 11.243, "s": 116.303, "e": 128.896, "D": 12.593}, "oil": {"v": 129.246, "d": 10.046, "s": 128.896, "e": 140.592, "D": 11.696}, "cmp": {"v": 140.942, "d": 13.696, "s": 140.592, "e": 155.738, "D": 15.146}, "end": {"v": 156.088, "d": 6.122, "s": 155.738, "e": 164.56, "D": 8.822}}, "TOTAL": 164.56, "spark3": 72.021}; const S=C.S;
+const E4=Engine.build(document.getElementById("g4"),"4s");
+const E2=Engine.build(document.getElementById("g2"),"2s");
+const d4a=document.getElementById("deg4a"),d4b=document.getElementById("deg4b"),d4c=document.getElementById("deg4c");
+const loopw=[0,1,2,3].map(i=>document.getElementById("loopw"+i));
+const clamp=(x)=>Math.max(0,Math.min(1,x));
+const ease=(p)=>p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2;
+function scene(t){for(const k in S){if(t>=S[k].s&&t<S[k].e)return k;}return "end";}
+function drive(t){
+  const k=scene(t), lt=t-S[k].s, D=S[k].D;
+  let a4=0,a2=0,showDeg=false,arrow4=false,arrow2=false;
+  const p=(pad)=>ease(clamp((lt-pad)/(D-2*pad)));
+  switch(k){
+    case "hook": a4=lt*540; break;
+    case "title": a4=lt*300; break;
+    case "parts": a4=30; break;
+    case "stroke": a4=360*p(0.9); arrow4=true; break;
+    case "four": a4=720*clamp(lt/D); showDeg=true; break;
+    case "s1": a4=180*p(0.7); showDeg=true; arrow4=true; break;
+    case "s2": a4=180+180*p(0.7); showDeg=true; arrow4=true; break;
+    case "s3": {const ts=C.spark3-S.s3.s; a4= lt<ts?360:540-180*Math.pow(1-clamp((lt-ts)/(D-ts-0.6)),2.2); showDeg=true; arrow4=true; break;}
+    case "s4": a4=540+180*p(0.7); showDeg=true; arrow4=true; break;
+    case "loop": a4=lt*260; showDeg=true; break;
+    case "two": a2=180-(D-lt)*144; break;
+    case "t1": a2=180+180*p(0.6); arrow2=true; break;
+    case "t2": {const q=clamp((lt-0.6)/(D-1.2)); a2=360+180*(q<.5?0.5*Math.pow(q*2,0.7):0.5+0.5*Math.pow((q-.5)*2,1.4)); arrow2=true; break;}
+    case "oil": a2=lt*330; break;
+    default: a4=lt*400; a2=lt*400;
+  }
+  Engine.update(E4,a4,t,{arrow:arrow4,phaseCb:(phi)=>{
+    d4a.textContent=showDeg?"क्रैंक कोण":"";d4b.textContent=showDeg?(Math.round(phi)+"°"):"";d4c.textContent=showDeg?("चक्कर: "+(phi<360?1:2)):"";
+    if(k==="loop"){const idx=Math.floor(phi/180)%4;loopw.forEach((w,i)=>{if(w){w.style.color=i===idx?"#ffb547":"#5d7a99";}});}
+  }});
+  Engine.update(E2,a2,t,{arrow:arrow2,smoke:k==="oil"||k==="cmp"});
+}
+const tl=gsap.timeline({paused:true});
+const proxy={t:0};
+tl.to(proxy,{t:C.TOTAL,duration:C.TOTAL,ease:"none",onUpdate:()=>drive(proxy.t)},0);
+drive(0);
+// panels
+document.querySelectorAll(".panel,.cols").forEach(p=>{
+  const s=+p.dataset.s,e=+p.dataset.e;
+  tl.set(p,{opacity:0},0); tl.set(p,{opacity:1,x:0},s);
+  if(e<C.TOTAL-0.1) tl.to(p,{opacity:0,x:-60,duration:0.3,ease:"power2.in"},e-0.32);
+  p.querySelectorAll("[data-in]").forEach(it=>{
+    tl.fromTo(it,{opacity:0,y:40,scale:0.92},{opacity:1,y:0,scale:1,duration:0.45,ease:"back.out(1.7)"},+it.dataset.in);
+    tl.fromTo(it,{textShadow:"0 0 0px rgba(255,200,80,0)"},{textShadow:"0 0 26px rgba(255,200,80,.9)",duration:0.2,yoyo:true,repeat:1},+it.dataset.in+0.3);
+  });
+});
+document.querySelectorAll(".lgrp").forEach(g=>{
+  const s=+g.dataset.s,e=+g.dataset.e;
+  g.querySelectorAll(".lab").forEach(l=>{tl.fromTo(l,{opacity:0},{opacity:1,duration:0.35},+l.dataset.in);});
+  tl.to(g,{opacity:0,duration:0.3},e-0.3);
+});
+// engine wrappers
+const w4="#w4",w2="#w2";
+tl.fromTo(w4,{opacity:0.5,scale:1.12,transformOrigin:"560px 800px"},{opacity:1,scale:1,duration:1.0,ease:"power3.out"},0);
+tl.fromTo(w2,{opacity:0,x:900},{opacity:0,x:900,duration:0.01},0);
+tl.to(w4,{x:-900,opacity:0,duration:0.8,ease:"power2.in"},S.two.s);
+tl.fromTo(w2,{x:900,opacity:0},{x:0,opacity:1,duration:0.9,ease:"power3.out",immediateRender:false},S.two.s+0.5);
+// compare layout
+tl.fromTo(w4,{x:-80,y:-180,scale:0.6,opacity:0,transformOrigin:"560px 800px"},{x:-80,y:-180,scale:0.6,opacity:1,duration:0.7,ease:"power2.out",immediateRender:false},S.cmp.s);
+tl.to(w2,{x:880,y:-180,scale:0.6,transformOrigin:"560px 800px",duration:0.9,ease:"power3.inOut"},S.cmp.s);
+// slow camera breathing on stage
+tl.fromTo("#grid",{backgroundPositionY:"0px"},{backgroundPositionY:"300px",duration:C.TOTAL,ease:"none"},0);
+// spark flash
+[C.spark3].forEach(ts=>{tl.fromTo("#flashv",{opacity:0.0},{opacity:0.18,duration:0.06,yoyo:true,repeat:1},ts);});
+window.__timelines=window.__timelines||{};
+window.__timelines["main"]=tl;
+})();
+</script>
+</body>
+</html>
